@@ -1,0 +1,40 @@
+#paint-canvas {
+  flex: 1;
+  z-index: -1;
+}
+
+.container {
+  overflow: hidden;
+  z-index: 0;
+}
+
+.paint {
+  cursor: none;
+}
+
+.grabbable {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.grabbable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.ball {
+  cursor: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+}
+
+#cursor-ball {
+  top: 10000px;
+  left: 10000px;
+}

@@ -1,0 +1,45 @@
+<div class="panel">
+  <input id="color-input" type="color" width="20px" height="20px" value="#000" (change)="changeColorInput($event)">
+
+  <div class="row" *ngFor="let row of colorArray">
+    <div (click)="changeColor($event)" class="el" *ngFor="let el of row" [ngStyle]="{ 'background-color': el }">
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let row of recentColorsArray">
+    <div (click)="changeColor($event)" class="el" *ngFor="let el of row" [ngStyle]="{ 'background-color': el }">
+    </div>
+  </div>
+
+  <input type="range" min="1" max="100" value="20" id="range-input" (change)="changeLineWidth($event)"
+    title="Line width">
+
+  <div class="tools">
+
+    <input class="tool" type="radio" name="tool" id="tool1" checked (change)="setPencil()">
+    <label class="tool-label" for="tool1" title="Drawing tool">
+      <i class="fa fa-pencil" style="font-size:37px"></i>
+    </label>
+
+    <input class="tool" type="radio" name="tool" id="tool2" (change)="setGrab()">
+    <label class="tool-label" for="tool2" title="Move canvas">
+      <i class="fa-solid fa-arrows-up-down-left-right" style="font-size:37px"></i>
+    </label>
+
+    <input class="tool" type="radio" name="tool" id="tool3" (change)="setEraser()">
+    <label class="tool-label" for="tool3" id="eraser" title="Eraser">
+      <i class="fa-solid fa-eraser" style="font-size:37px"></i>
+    </label>
+
+    <div class="tool-label" (click)="undo()" title="Undo">
+      <i class="fa-solid fa-rotate-left"
+        [style]="'font-size:37px;' + (getIndexArrayLength() == 0 ? 'color: #aaaaaa;' : '')"></i>
+    </div>
+
+    <div class="tool-label" (click)="redo()" title="Redo">
+      <i class="fa-solid fa-rotate-right"
+        [style]="'font-size:37px;' + (recentlyDeletedIndices.length == 0 ? 'color: #aaaaaa;' : '')"></i>
+    </div>
+
+  </div>
+</div>

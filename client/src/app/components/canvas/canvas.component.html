@@ -1,0 +1,11 @@
+<div class="container">
+  <canvas id="paint-canvas" (mousedown)="canvasClick($event)" (mouseleave)="leave()" (mousemove)="canvasClick($event)"
+    (mouseup)="setLines()">
+  </canvas>
+  <div class="ball" id="cursor-ball" style="font-size: 0">
+    <svg [attr.height]="width + 2" [attr.width]="width + 2">
+      <circle [attr.cx]="width / 2 + 1" [attr.cy]="width / 2 + 1" [attr.r]="width / 2" stroke="black" stroke-width="1"
+        fill="#FFFFFF" fill-opacity=".4"></circle>
+    </svg>
+  </div>
+</div>
